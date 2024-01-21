@@ -7,17 +7,20 @@ public class Main {
     public static void main(String[] args) {
         int[][] array = createArray();
         if (array != null) {
-            for (int i = 0; i < array.length; i++) {
-                for (int j = 0; j < array[i].length; j++) {
-                    array[i][j] = i * j;
-                    System.out.printf("%5d | ", array[i][j]);
-                }
-                System.out.println();
-                System.out.printf("-".repeat(8 * array.length - 1));
-                System.out.println();
-            }
+            printArray(array);
         } else {
             System.out.println("Podales zla liczbe wierszy lub kolumn");
+        }
+    }
+
+    private static void printArray(int[][] array) {
+        for (int i = 0; i < array.length; i++) {
+            for (int j = 0; j < array[i].length; j++) {
+                array[i][j] = i * j;
+                System.out.printf("%5d |", array[i][j]);
+            }
+            System.out.println();
+            System.out.println("-".repeat(7 * array[i].length));
         }
     }
 
@@ -29,8 +32,7 @@ public class Main {
         System.out.println("Podaj liczbe kolumn.");
         int size2 = scanner.nextInt();
         if (size1 < max && size2 < max) {
-            int[][] array = new int[size1][size2];
-            return array;
+            return new int[size1][size2];
         } else {
             return null;
         }
